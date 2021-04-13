@@ -76,6 +76,7 @@ export default function Home() {
 
   const handleServerSubmit = async () => {
     setLoading(true);
+    setValidated(false);
     if (verifyMethod === "instagram") {
       const result = await fetch("api/instagram", {
         method: "POST",
@@ -110,6 +111,7 @@ export default function Home() {
         );
       } else {
         setValidated(true);
+        setUsername("");
         setLink(result.data);
         // window.open(result.data, "_blank");
       }
@@ -143,6 +145,7 @@ export default function Home() {
       } else {
         setValidated(true);
         setLink(result.data);
+        setUsername("");
         // window.open(result.data, "_blank");
       }
     } else {
@@ -153,7 +156,7 @@ export default function Home() {
     if (verifyMethod == "instagram") {
       return (
         <div>
-          <h2 id="transition-modal-title">Verify Instagram</h2>
+          <h2 id="transition-modal-title">Verify Instagram (10-20sec)</h2>
           <p style={{ fontSize: 15 }}>
             Please ensure you're following{" "}
             <b>
@@ -163,6 +166,13 @@ export default function Home() {
             </b>{" "}
             on Instagram
           </p>
+          <p style={{ fontSize: 10, color: "grey˝" }}>
+            Please note: - Instagram verification is a slow process and might at
+            times
+            <br /> take 2 attempts before being verified. To get instant access
+            try out
+            <br /> the Twitter verification method
+          </p>
           <TextField
             style={{ width: "100%" }}
             error={error}
@@ -170,7 +180,9 @@ export default function Home() {
             label="Instagram Username"
             helperText={errorReason}
             variant="outlined"
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
+            disabled={loading}
           />
           <div className={classes.wrapper}>
             <Button
@@ -191,7 +203,7 @@ export default function Home() {
     } else if (verifyMethod === "twitter") {
       return (
         <div>
-          <h2 id="transition-modal-title">Verify Twitter</h2>
+          <h2 id="transition-modal-title">Verify Twitter (Instant)</h2>
           <p style={{ fontSize: 15 }}>
             Please ensure you're following{" "}
             <b>
@@ -213,11 +225,13 @@ export default function Home() {
           </p>
           <TextField
             style={{ width: "100%" }}
+            disabled={loading}
             error={error}
             id="outlined-error-helper-text"
             label="@TwitterHandle"
             helperText={errorReason}
             variant="outlined"
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <div className={classes.wrapper}>
@@ -273,7 +287,7 @@ export default function Home() {
         >
           <Fade in={modalOpen}>
             <div className={classes.paper}>
-              <FormControl style={{ minWidth: "70%" }}>
+              <FormControl style={{ minWidth: "70%" }} disabled={loading}>
                 <InputLabel id="demo-simple-select-label">
                   Select Verification Method
                 </InputLabel>
@@ -310,8 +324,6 @@ export default function Home() {
                 </div>
               )}
             </div>
-            {/*
-             */}
           </Fade>
         </Modal>
 
