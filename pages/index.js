@@ -160,7 +160,7 @@ export default function Home() {
           <p style={{ fontSize: 15 }}>
             Please ensure you're following{" "}
             <b>
-              <a href="https://instagram.com/thedeeb" target="_blank">
+              <a href="https://instagram.com/thedeeb" target="_blank" style={{color:'blue'}}>
                 @thedeeb
               </a>
             </b>{" "}
@@ -168,10 +168,8 @@ export default function Home() {
           </p>
           <p style={{ fontSize: 10, color: "grey˝" }}>
             Please note: - Instagram verification is a slow process and might at
-            times
-            <br /> take 2 attempts before being verified. To get instant access
-            try out
-            <br /> the Twitter verification method
+            times take 2 attempts before being verified. To get instant access
+            try out the Twitter verification method
           </p>
           <TextField
             style={{ width: "100%" }}
@@ -207,7 +205,7 @@ export default function Home() {
           <p style={{ fontSize: 15 }}>
             Please ensure you're following{" "}
             <b>
-              <a href="https://twitter.com/deebtheweeb" target="_blank">
+              <a href="https://twitter.com/deebtheweeb" target="_blank" style={{color:'blue'}}>
                 @deebtheweeb
               </a>
             </b>{" "}
