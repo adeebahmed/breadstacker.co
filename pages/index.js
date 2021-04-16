@@ -53,7 +53,7 @@ export default function Home() {
   const classes = useStyles();
   const [modalOpen, setModalOpen] = useState(false);
   const [category, setCategory] = useState("");
-  const [verifyMethod, setVerifyMethod] = useState("instagram");
+  const [verifyMethod, setVerifyMethod] = useState("twitter");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [validated, setValidated] = useState(false);
