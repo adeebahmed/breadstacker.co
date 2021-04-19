@@ -160,7 +160,11 @@ export default function Home() {
           <p style={{ fontSize: 15 }}>
             Please ensure you're following{" "}
             <b>
-              <a href="https://instagram.com/thedeeb" target="_blank" style={{color:'blue'}}>
+              <a
+                href="https://instagram.com/thedeeb"
+                target="_blank"
+                style={{ color: "blue" }}
+              >
                 @thedeeb
               </a>
             </b>{" "}
@@ -205,7 +209,11 @@ export default function Home() {
           <p style={{ fontSize: 15 }}>
             Please ensure you're following{" "}
             <b>
-              <a href="https://twitter.com/deebtheweeb" target="_blank" style={{color:'blue'}}>
+              <a
+                href="https://twitter.com/deebtheweeb"
+                target="_blank"
+                style={{ color: "blue" }}
+              >
                 @deebtheweeb
               </a>
             </b>{" "}
@@ -285,24 +293,7 @@ export default function Home() {
         >
           <Fade in={modalOpen}>
             <div className={classes.paper}>
-              <FormControl style={{ minWidth: "70%" }} disabled={loading}>
-                <InputLabel id="demo-simple-select-label">
-                  Select Verification Method
-                </InputLabel>
-                <Select
-                  style={{ minWidth: "220px" }}
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  defaultValue={verifyMethod}
-                  // value={age}
-                  onChange={(e) => setVerifyMethod(e.target.value)}
-                >
-                  <MenuItem value={"instagram"}>Instagram</MenuItem>
-                  <MenuItem value={"twitter"}>Twitter</MenuItem>
-                </Select>
-              </FormControl>
-              {renderModal()}
-              {validated && (
+              {validated ? (
                 <div style={{ padding: 5 }}>
                   <p>
                     Thanks for verifying. Here’s the invite to the discord
@@ -320,12 +311,35 @@ export default function Home() {
                     Open
                   </Button>
                 </div>
+              ) : (
+                <>
+                  <FormControl style={{ minWidth: "70%" }} disabled={loading}>
+                    <InputLabel id="demo-simple-select-label">
+                      Select Verification Method
+                    </InputLabel>
+                    <Select
+                      style={{ minWidth: "220px" }}
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      defaultValue={verifyMethod}
+                      // value={age}
+                      onChange={(e) => {
+                        setValidated(false);
+                        setVerifyMethod(e.target.value);
+                      }}
+                    >
+                      <MenuItem value={"instagram"}>Instagram</MenuItem>
+                      <MenuItem value={"twitter"}>Twitter</MenuItem>
+                    </Select>
+                  </FormControl>
+                  {renderModal()}
+                </>
               )}
             </div>
           </Fade>
         </Modal>
 
-        <div className={styles.splitTop}>
+        {/* <div className={styles.splitTop}>
           <img
             src="https://res.cloudinary.com/jdawg/image/upload/f_auto,q_auto:eco/v1618219962/breadstackers_server_background_beziwt.jpg"
             className={styles.topImageBackground}
@@ -337,7 +351,7 @@ export default function Home() {
             className={styles.imgstyle}
             onClick={() => handleOpen("server")}
           />
-        </div>
+        </div> */}
         <div className={styles.splitBottom}>
           <img
             src="https://res.cloudinary.com/jdawg/image/upload/f_auto,q_auto:eco/v1618219963/breadstackers_crypto_background_vvnfhy.jpg"
@@ -348,7 +362,10 @@ export default function Home() {
             width={200}
             height={200}
             className={styles.imgstyle}
-            onClick={() => handleOpen("crypto")}
+            onClick={() => {
+              setValidated(false);
+              handleOpen("crypto");
+            }}
           />
         </div>
       </main>
