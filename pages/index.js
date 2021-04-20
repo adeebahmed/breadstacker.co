@@ -96,7 +96,7 @@ export default function Home() {
       if (result.data === "usererror") {
         setError(true);
         setErrorReason(
-          "Make sure your profile is public and you're following @deebtheweeb"
+          "Make sure your profile is public and you're following @thedeeb_"
         );
       } else if (result.data === "usernotfound") {
         setError(true);
@@ -134,14 +134,14 @@ export default function Home() {
       if (result.data === "usererror") {
         setError(true);
         setErrorReason(
-          "Make sure your profile is public and you're following @deebtheweeb"
+          "Make sure your profile is public and you're following @thedeeb_"
         );
       } else if (result.data === "usernotfound") {
         setError(true);
         setErrorReason("Please check your username");
       } else if (result.data === -1) {
         setError(true);
-        setErrorReason("Oh ho, looks like you're not following @deebtheweeb");
+        setErrorReason("Oh ho, looks like you're not following @thedeeb_");
       } else {
         setValidated(true);
         setLink(result.data);
@@ -210,11 +210,11 @@ export default function Home() {
             Please ensure you're following{" "}
             <b>
               <a
-                href="https://twitter.com/deebtheweeb"
+                href="https://twitter.com/thedeeb_"
                 target="_blank"
                 style={{ color: "blue" }}
               >
-                @deebtheweeb
+                @thedeeb_
               </a>
             </b>{" "}
             on twitter
