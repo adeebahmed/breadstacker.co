@@ -399,7 +399,6 @@ export default function Home() {
                 <div style={{display:'flex',flexDirection:'row',justifyContent:'center',}}>
                   <a href="https://instagram.com/breadstackerscrypto" target='_blank'><Icon className="fab fa-instagram" style={{fontSize:50,margin:5}}></Icon></a>
                   <a href="https://twitter.com/breadstackersc" target="_blank"><Icon className="fab fa-twitter" style={{fontSize:50,margin:5}}></Icon></a>
-                 
                 </div>
               </div>
             </div>
