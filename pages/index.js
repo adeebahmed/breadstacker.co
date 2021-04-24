@@ -273,7 +273,7 @@ export default function Home() {
       <Head>
         <title>BreadStackers</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="/styles.css" />
+        {/* <link rel="stylesheet" href="/styles.css" /> */}
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
@@ -397,8 +397,8 @@ export default function Home() {
             <div className={styles.socials}>
               <div style={{ flex: 1 }}>
                 <div style={{display:'flex',flexDirection:'row',justifyContent:'center',}}>
-                  <Icon className="fab fa-instagram" style={{fontSize:50,margin:5}}> breadstackerscrypto</Icon>
-                  <Icon className="fab fa-twitter" style={{fontSize:50,margin:5}}> breadstackerscrypto</Icon>
+                  <a href="https://instagram.com/breadstackerscrypto" target='_blank'><Icon className="fab fa-instagram" style={{fontSize:50,margin:5}}></Icon></a>
+                  <a href="https://twitter.com/breadstackersc" target="_blank"><Icon className="fab fa-twitter" style={{fontSize:50,margin:5}}></Icon></a>
                  
                 </div>
               </div>
