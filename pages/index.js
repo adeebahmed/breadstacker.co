@@ -15,7 +15,10 @@ import {
   Backdrop,
   Modal,
   TextField,
+  Icon,
 } from "@material-ui/core";
+import { Timeline } from "react-twitter-widgets";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: "white",
@@ -270,6 +273,15 @@ export default function Home() {
       <Head>
         <title>BreadStackers</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="/styles.css" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        ></link>
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          rel="stylesheet"
+        ></link>
       </Head>
 
       <main>
@@ -367,6 +379,31 @@ export default function Home() {
               handleOpen("crypto");
             }}
           />
+          <div className={styles.sidebarRight}>
+            {/* Tweet and insta handles right  */}
+            <Timeline
+              class="twitter-timeline"
+              dataSource={{
+                sourceType: "profile",
+                screenName: "breadstackersc",
+              }}
+              options={{
+                theme: "dark",
+                width: "400",
+                height: "600",
+                chrome: "nofooter,noscrollbar",
+              }}
+            />
+            <div className={styles.socials}>
+              <div style={{ flex: 1 }}>
+                <div style={{display:'flex',flexDirection:'row',justifyContent:'center',}}>
+                  <Icon className="fab fa-instagram" style={{fontSize:50,margin:5}}> breadstackerscrypto</Icon>
+                  <Icon className="fab fa-twitter" style={{fontSize:50,margin:5}}> breadstackerscrypto</Icon>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
